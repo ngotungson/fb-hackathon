@@ -8,6 +8,8 @@ import SelectLocationWrapper from '../components/SelectLocationWrapper';
 import StoreList from '../components/StoreList';
 import Slider from '../components/Slider';
 import Spinner from '../components/Spinner';
+import ProfileWrapper from '../components/ProfileWrapper';
+
 
 
 class App extends React.Component {
@@ -16,8 +18,20 @@ class App extends React.Component {
     this.state={
       searchQuery: "",
       isStoreLoading: false,
-      isStoreSearching: false
+      isStoreSearching: false,
+      stores_data: [],
+      user: {},
+      isLogined: false
     }
+  }
+
+  handleLogin = (user) => {
+    this.setState({
+      user: user,
+      isLogined: true
+    }, function() {
+
+    })
   }
 
   handleSearchChange = (newQuery) => {
@@ -29,7 +43,8 @@ class App extends React.Component {
       axios.get(`http://localhost:3001/stores/search?origins=${this.state.searchQuery}`)
         .then(function(data) {
           this.setState({
-            isStoreLoading: false
+            isStoreLoading: false,
+            stores_array: data.data
           })
         }.bind(this))
     }.bind(this))
@@ -45,16 +60,26 @@ class App extends React.Component {
       colRightRender = <Spinner />
     }
     else if (!this.state.isStoreLoading && this.state.isStoreSearching) {
-      colRightRender = <StoreList />
+      colRightRender = <StoreList stores_array={this.state.stores_array}/>
     }
 
+    let loginContent = null;
+    if (!this.state.isLogined) {
+      loginContent=<FacebookButton onLogin={this.handleLogin}/>
+    } else {
+      loginContent=<ProfileWrapper user={this.state.user}/>
+    }
+
+    console.log(this.state.isLogined)
 
     return (
       <div className="app">
         <Row className="app-header">
           <Col span={24}>
             <h2 className="header-intro"> Wellcome to Lovely Gifts </h2>
-            <h2 className="header-login">  <FacebookButton /> </h2>
+            <h2 className="header-login">
+              {loginContent}
+          </h2>
           </Col>
         </Row>
 

@@ -6,7 +6,9 @@
   height: 70px;
   padding: 20px;
   color: #F1A9A0;
-  text-align: center;
+  border-bottom: 1px #ECECEC solid;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  margin-bottom: 1em;
 }
 
 .app-intro {
@@ -19,8 +21,9 @@
 }
 
 .my-facebook-button-class {
-  color: white;
-  background-color: #59ABE3;
+  color: blue;
+  border: none;
+  background-color: white;
 }
 
 .header-intro {
@@ -30,5 +33,4 @@
 
 .header-login {
   float: right;
-  font-family: 'Molle', cursive;
 }
