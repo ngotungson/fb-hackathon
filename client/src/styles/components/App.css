@@ -1,0 +1,22 @@
+
+.app {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.app-header {
+  background-color: #F1A9A0;
+  height: 70px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  font-family: 'Molle', cursive;
+}
+
+.app-intro {
+  font-size: large;
+}
+
+.card {
+  padding: 0.5em;
+  margin: 1em;
+}
