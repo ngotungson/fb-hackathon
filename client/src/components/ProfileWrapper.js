@@ -2,26 +2,29 @@ import React from 'react';
 import { Menu, Dropdown, Button, Icon, message } from 'antd';
 
 
-function handleMenuClick(e) {
-  message.info('Click on menu item.');
-  console.log('click', e);
-}
-
-const menu = (
-  <Menu onClick={handleMenuClick}>
-    <Menu.Item key="1"> Profile </Menu.Item>
-    <Menu.Item key="2"> Logout  </Menu.Item>
-
-  </Menu>
-);
-
 class ProfileWrapper extends React.Component {
 
-  render () {
+  handleMenuClick = (e) => {
+    console.log(e);
+    if (e.key == "1") {
+      this.props.onLogout();
+    }
+  }
+
+  render = () => {
+    const menu = (
+      <Menu onClick={this.handleMenuClick}>
+        <Menu.Item  key="1"> Logout  </Menu.Item>
+      </Menu>
+    );
+
+    console.log(this.props.user);
+    
+
     return (
-      <div>
+      <div className="profile-wrapper">
         <Dropdown overlay={menu}>
-          <Button type="ghost" style={{ marginLeft: 8 }}>
+          <Button type="ghost" style={{ marginLeft: 8, marginBotton: 20 }}>
              <img src={this.props.user.picture.data.url}  style={{width: "30px", verticalAlign: "middle"}}/>
              <span> {this.props.user.name} </span>
              <Icon type="setting" />

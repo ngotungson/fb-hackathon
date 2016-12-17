@@ -4,6 +4,7 @@ import FacebookLogin from 'react-facebook-login';
 class FacebookButton extends React.Component {
 
   responseFacebook = (response) => {
+    console.log(response);
     this.props.onLogin(response);
   }
 
@@ -12,6 +13,7 @@ class FacebookButton extends React.Component {
       <div>
         <FacebookLogin
           appId="225978194514791"
+          autoLoad={false}
           fields="name,email,picture"
           cssClass="my-facebook-button-class"
           textButton=" "

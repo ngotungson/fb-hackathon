@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Card,  } from 'antd';
+import { Row, Col, Card, message } from 'antd';
 import axios from 'axios';
 import '../styles/library/antd.css';
 import '../styles/components/App.css';
@@ -25,12 +25,22 @@ class App extends React.Component {
     }
   }
 
+
   handleLogin = (user) => {
     this.setState({
       user: user,
       isLogined: true
     }, function() {
+      console.log("login")
+      message.success("Log in successfully", 5)
+    })
+  }
 
+  handleLogout = () => {
+    this.setState({
+      isLogined: false
+    }, function() {
+      message.success("Log out successfully", 5)
     })
   }
 
@@ -63,14 +73,14 @@ class App extends React.Component {
       colRightRender = <StoreList stores_array={this.state.stores_array}/>
     }
 
+    console.log(this.state.isLogined);
     let loginContent = null;
     if (!this.state.isLogined) {
-      loginContent=<FacebookButton onLogin={this.handleLogin}/>
+      loginContent=<FacebookButton onLogin={this.handleLogin} />
     } else {
-      loginContent=<ProfileWrapper user={this.state.user}/>
+      loginContent=<ProfileWrapper user={this.state.user}  onLogout={this.handleLogout} />
     }
 
-    console.log(this.state.isLogined)
 
     return (
       <div className="app">

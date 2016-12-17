@@ -4,6 +4,10 @@ import '../styles/components/item.css'
 
 class StoreList extends React.Component {
 
+  componentDidMount = () => {
+    window.FB.XFBML.parse();
+  }
+
   render() {
     let store_lists = this.props.stores_array.map(function(item, index){
       return (
@@ -18,6 +22,8 @@ class StoreList extends React.Component {
               <p>Address: {item.address}</p>
               <p>Phone: {item.phone} </p>
             </div>
+          </div>
+          <div className="fb-save" data-uri="http://shophoavip.com/" data-size="large">
           </div>
         </div>
       )

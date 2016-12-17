@@ -4,7 +4,7 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 const provinceData = ['Hà Nội'];
 const districtData = {
-  'Hà Nội': ['Đan Phuong', 'Cau Giay', 'Hoan Kiem'],
+  'Hà Nội': ['Ba Đình', 'Tây Hồ', 'Hoàn Kiếm', 'Hai Bà Trưng'],
 };
 const formItemLayout = {
   labelCol: { span: 6 },
