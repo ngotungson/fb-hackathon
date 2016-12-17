@@ -1,15 +1,12 @@
-
 .app {
   font-family: 'Nunito Sans', sans-serif;
 }
 
 .app-header {
-  background-color: #F1A9A0;
   height: 70px;
   padding: 20px;
-  color: white;
+  color: #F1A9A0;
   text-align: center;
-  font-family: 'Molle', cursive;
 }
 
 .app-intro {
@@ -19,4 +16,19 @@
 .card {
   padding: 0.5em;
   margin: 1em;
+}
+
+.my-facebook-button-class {
+  color: white;
+  background-color: #59ABE3;
+}
+
+.header-intro {
+  display: inline-block;
+  font-family: 'Molle', cursive;
+}
+
+.header-login {
+  float: right;
+  font-family: 'Molle', cursive;
 }

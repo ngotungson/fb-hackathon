@@ -3,6 +3,7 @@ import { Row, Col, Card,  } from 'antd';
 import axios from 'axios';
 import '../styles/library/antd.css';
 import '../styles/components/App.css';
+import FacebookButton from '../components/FacebookButton'
 import SelectLocationWrapper from '../components/SelectLocationWrapper';
 import StoreList from '../components/StoreList';
 import Slider from '../components/Slider';
@@ -52,7 +53,8 @@ class App extends React.Component {
       <div className="app">
         <Row className="app-header">
           <Col span={24}>
-            <h2> Wellcome to Lovely Gifts </h2>
+            <h2 className="header-intro"> Wellcome to Lovely Gifts </h2>
+            <h2 className="header-login">  <FacebookButton /> </h2>
           </Col>
         </Row>
 
