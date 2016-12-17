@@ -1,22 +1,29 @@
 class StoresController < ApplicationController
   def search
-
-    distances = []
-    puts "Done"
     stores = Store.all
+    distances = []
+    destinations = ""
+
     stores.each do |store|
-      res = HTTParty.get("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins= \
-        #{URI.escape(params[:origins])}&destinations=#{URI.escape(store.address)}&key=AIzaSyCYrguqNpw3EKMOi5dgetVZwqHm97WoD-A")
-      distances << JSON.parse(res.body)
+      if destinations.present?
+        destinations += "|#{ URI.escape(store.address) }"
+      else
+        destinations += store.address
+      end
     end
 
-    distances.sort! do |d1, d2|
-      d1['rows'][0]['elements'][0]['distance']['value'] <=> d2['rows'][0]['elements'][0]['distance']['value']
+    res = HTTParty.get("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=#{ URI.escape(params[:origins]) }&destinations=#{destinations}&key=AIzaSyBD9N2LVS6MSqKFUI4VAOpCddX5ZDNXrqA")
+    distances = JSON.parse(res.body)
+    distances = distances["rows"][0]["elements"]
+
+    distances.zip(stores).each do |dist, store|
+      store.distance = dist["distance"]      
     end
 
-    render json: distances
+    stores = stores.sort do |store1, store2|
+      store1.distance["value"] <=> store2.distance["value"]
+    end
 
+    render json: stores
   end
-
-
 end
