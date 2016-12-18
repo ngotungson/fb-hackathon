@@ -28,9 +28,14 @@
 
 .header-intro {
   display: inline-block;
-  font-family: 'Molle', cursive;
+  font-family: 'Indie Flower', cursive;
 }
 
 .header-login {
   float: right;
+}
+
+.store-header {
+  color: #F64747 !important;
+  font-family: 'Indie Flower', cursive !important;
 }

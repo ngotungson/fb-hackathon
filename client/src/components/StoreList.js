@@ -13,9 +13,9 @@ class StoreList extends React.Component {
       return (
         <div className="item" key={index}>
           <div className="content">
-            <div className="header">{item.name}</div>
+            <div className="header store-header">{item.name}</div>
             <div className="meta">
-              <span className="price">{item.distance.value}</span>
+              <span className="price">About {(item.distance.value / 1000).toFixed(1)} km</span>
 
             </div>
             <div className="description">
@@ -23,7 +23,7 @@ class StoreList extends React.Component {
               <p>Phone: {item.phone} </p>
             </div>
           </div>
-          <div className="fb-save" data-uri="http://shophoavip.com/" data-size="large">
+          <div className="fb-save" data-uri="http://shophoavip.com/" data-size="small">
           </div>
         </div>
       )

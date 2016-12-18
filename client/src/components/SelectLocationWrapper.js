@@ -62,7 +62,7 @@ const SelectLocationWrapper = React.createClass({
             </Select>
           </FormItem>
           <FormItem {...formItemLayout} label="Street">
-            <Input value={this.state.street} onChange={this.onStreetChange} placeholder="Basic usage" />
+            <Input value={this.state.street} onChange={this.onStreetChange} />
           </FormItem>
           <Row>
             <Button id="search-button" type="primary" htmlType="submit" size="large" style={{width: "100%"}}>Search</Button>

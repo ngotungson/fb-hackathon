@@ -13,4 +13,3 @@ Store.create(name: "Thủy Hoa Lụa 1", address: "136 Đội Cấn, Liễu Giai
 Store.create(name: "Tiệm bánh iT", address: "6 Lê Thanh Nghị Phường Bách Khoa Quận Hai Bà Trưng Hà Nội", phone: "098 398 96 78", website: "http://banhsinhnhatngon.com")
 Store.create(name: "Thu Huong bakery", address: "35C Phan Đình Phùng, Ba Đình, Hà Nội", phone: "04 3734 3868", website: "http://www.thuhuongbakery.com.vn/")
 Store.create(name: "Anh Hòa bakery", address: "Số 48 Trần Đại Nghĩa, Hai Bà Trưng, Hà Nội", phone: "04 3734 3868")
-Store.create(name: "Thu Huong bakery", address: "35C Phan Đình Phùng, Ba Đình, Hà Nội", phone: "04 3734 3868", website: "http://www.thuhuongbakery.com.vn/")

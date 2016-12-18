@@ -108,7 +108,6 @@ class App extends React.Component {
         </Row>
 
         <Row>
-            <PlacesBox />
         </Row>
       </div>
     )
