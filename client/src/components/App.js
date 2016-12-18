@@ -9,8 +9,7 @@ import StoreList from '../components/StoreList';
 import Slider from '../components/Slider';
 import Spinner from '../components/Spinner';
 import ProfileWrapper from '../components/ProfileWrapper';
-
-
+import PlacesBox from '../components/PlacesBox';
 
 class App extends React.Component {
   constructor(props) {
@@ -106,6 +105,10 @@ class App extends React.Component {
               {colRightRender}
             </Card>
           </Col>
+        </Row>
+
+        <Row>
+            <PlacesBox />
         </Row>
       </div>
     )
